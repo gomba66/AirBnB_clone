@@ -10,15 +10,24 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Method that inicialize the class """
-        if kwargs:
+        if len(kwargs) != 0:
             for keys in kwargs:
                 if keys == 'name':
                     self.name = kwargs[keys]
                 if keys == 'my_number':
                     self.my_number = kwargs[keys]
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+                if keys == 'id':
+                    self.id = kwargs[keys]
+                if keys == 'created_at':
+                    self.created_at = kwargs[keys]
+                    self.created_at = datetime.strptime(self.created_at, '%Y-%m-%dT%H:%M:%S.%f')
+                if keys == 'updated_at':
+                    self.updated_at = kwargs[keys]
+                    self.updated_at = datetime.strptime(self.updated_at, "%Y-%m-%dT%H:%M:%S.%f")
+        else:
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            self.id = str(uuid.uuid4())
 
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.__name__,
