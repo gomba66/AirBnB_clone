@@ -32,13 +32,16 @@ class BaseModel:
             self.id = str(uuid.uuid4())
 
     def __str__(self):
+        """ Method that returns a description formated of my class"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
+        """ Method that save the objects"""
         self.updated_at = datetime.now()
 
     def to_dict(self):
+        """Method that converts the data in a dictionary"""
         self.created_at = str(self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f"))
         self.updated_at = str(self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f"))
         dic = self.__dict__.copy()
