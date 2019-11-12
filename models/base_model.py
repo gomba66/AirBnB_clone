@@ -20,10 +20,12 @@ class BaseModel:
                     self.id = kwargs[keys]
                 if keys == 'created_at':
                     self.created_at = kwargs[keys]
-                    self.created_at = datetime.strptime(self.created_at, '%Y-%m-%dT%H:%M:%S.%f')
+                    self.created_at = datetime.strptime(self.created_at,
+                                                        '%Y-%m-%dT%H:%M:%S.%f')
                 if keys == 'updated_at':
                     self.updated_at = kwargs[keys]
-                    self.updated_at = datetime.strptime(self.updated_at, "%Y-%m-%dT%H:%M:%S.%f")
+                    self.updated_at = datetime.strptime(self.updated_at,
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
         else:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
