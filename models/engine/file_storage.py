@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -11,17 +12,24 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj.to_dict()
+        self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
     def save(self):
+        r = {}
         with open(self.__file_path, "w") as f:
-            dict_str = json.dumps(self.__objects)
-            f.write(dict_str)
+            for k, v in self.__objects.items():
+                r[k] = v.to_dict()
+            f.write(json.dumps(r))
 
     def reload(self):
+
+        
+        obj_dict = {"BaseModel": BaseModel, "User": User}
+        print(BaseModel)
         try:
             with open(self.__file_path, "r") as f:
-                content = f.read()
-                self.__objects = json.loads(content)
+                m = json.loads(f.read())
+                for key, value in m.items():
+                    self.__objects[key] = obj_dict[value["__class__"]](**value)
         except FileNotFoundError:
             pass

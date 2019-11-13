@@ -54,8 +54,8 @@ class BaseModel:
 
         """Method that converts the data in a dictionary"""
 
-        self.created_at = str(self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f"))
-        self.updated_at = str(self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f"))
         dic = self.__dict__.copy()
-        dic["__class__"] = self.__class__.__name__
+        dic["__class__"]  = self.__class__.__name__
+        dic["created_at"] = self.created_at.isoformat()
+        dic["updated_at"] = self.updated_at.isoformat()
         return dic
