@@ -24,7 +24,6 @@ class FileStorage:
     def reload(self):
 
         obj_dict = {"BaseModel": BaseModel, "User": User}
-        print(BaseModel)
         try:
             with open(self.__file_path, "r") as f:
                 m = json.loads(f.read())
