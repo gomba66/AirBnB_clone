@@ -23,7 +23,6 @@ class FileStorage:
 
     def reload(self):
 
-        
         obj_dict = {"BaseModel": BaseModel, "User": User}
         print(BaseModel)
         try:
