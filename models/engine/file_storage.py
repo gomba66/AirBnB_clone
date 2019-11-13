@@ -2,6 +2,7 @@
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     __file_path = 'file.json'
     __objects = {}
@@ -16,6 +17,7 @@ class FileStorage:
         with open(self.__file_path, "w") as f:
             dict_str = json.dumps(self.__objects)
             f.write(dict_str)
+
     def reload(self):
         try:
             with open(self.__file_path, "r") as f:
