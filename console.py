@@ -30,11 +30,11 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
-    def do_create(self, arg):
+    def do_create(self, line):
         """Create classes"""
-        if len(arg) == 0:
+        if len(line) == 0:
             print("** class name missing **")
-        elif arg == "BaseModel":
+        elif line == "BaseModel":
             o = BaseModel()
             o.save()
             print(o.id)
@@ -43,6 +43,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, line):
 
+        c = False
         all_objs = storage.all()
         line = split(line)
         if len(line) == 2:
@@ -51,6 +52,32 @@ class HBNBCommand(cmd.Cmd):
                     obj = all_objs[obj_id]
                     if line[1] == obj.id:
                         print(obj)
+                        c = True
+                        break
+                    else:
+                        c = False
+                if c == False:
+                    print("** no instance found **")
+        elif len(line) == 1:
+            if line[0] in self.dict_classes:
+                print("** instance id missing **")
+            else:
+                print("** class doesn't exist **")
+        else:
+            print("** class name missing **")
+
+    def do_destroy(self, line):
+
+        c = False
+        all_objs = storage.all()
+        line = split(line)
+        if len(line) == 2:
+            if line[0] in self.dict_classes:
+                for obj_id in all_objs.keys():
+                    obj = all_objs[obj_id]
+                    if line[1] == obj.id:
+                        del all_objs[obj_id]
+                        obj.save()
                         c = True
                         break
                     else:
