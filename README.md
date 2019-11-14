@@ -1,6 +1,6 @@
 # AirBnB clone - The console 👨‍💻
 
-![simple_shell]()
+![console logo](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/263/HBTN-hbnb-Final.png)
 ## Table of Contents
 
 - [Description](#Description)
@@ -15,7 +15,7 @@
 - [Acknowledgments](#acknowledgments)
 
 ### Description 
-   📄
+📄
 With this project console (AirBnB clone - The console), we want to be able to manage the objects of our project:
 
  - Create a new object (ex: a new User or a new Place)
@@ -24,43 +24,42 @@ With this project console (AirBnB clone - The console), we want to be able to ma
  - Update attributes of an object
  - Destroy an object
 
-### Environment 💻
+### Environment 
+💻
 AirBnB clone - The console  was developed on Ubuntu 18.04 LTS and Python3
 
-## Further information 🚀
+## Authors 
+🚀
 For further information please refer to [Authors](./AUTHORS)
 
-## Requirements 📋
+## Requirements 
+📋
 Basic knowledge about Python programming language Basic knowledge about shell and linux A text editor software
 
-## Built with ⚙️
+## Built with
+⚙️
 Python3 programming language
 
 ## File Contents
 The repository contains the following files:
 
-|   **File**   |   **Description**   |
-| -------------- | --------------------- |
-|[AUTHORS](./AUTHORS) | Contains info about authors of the project |
-|[man_1_simple_shell](./man_1_simple_shell) | Man page for the created shell |
-|[main.c](./main.c) | The main function |
-|[builtins.c](./builtins.c) | Handles exit, env built-in commands |
-|[command.c](./command.c)| Actions executes given input into the shell |
-|[shell.h](./shell.h)| Header file containing all function prototypes and struct declarations |
-|[error_msg.c](./error_msg.c) | Containing function, that prints error messages |
-|[findpath.c](./findpath.c) | searches the environment for PATH |
-|[fix_token.c](./fix_token.c) | concatenates 2 strings adding a backslash and null byte |
-|[getline_func.c](./getline_func.c) | reads input from user |
+   **File**   |   **Description**   
+ -------------- | --------------------- 
+[AUTHORS](./AUTHORS) | Contains info about authors of the project
+[models/base_model.py](./models/base_model.py) | Base Class with public instance attributes and methods
 
 
 
-### Usage and Installation 🛠️
+
+### Usage and Installation 
+🛠️
 Clone the repository
 ```
 root@ubuntu:~$ git clone https://github.com/JulianDavidG07/AirBnB_clone.git
 ```
 
-### Console 🔧
+### Console 
+🔧
 To test the console just run:
 ```
 root@ubuntu:~/AirBnB$ ./console.py `
@@ -133,11 +132,15 @@ or
 ```
 root@ubuntu:~/AirBnB$
 ```
-### Version 📌
+### Version 
+📌
 (AirBnB clone - The console) --version 1.0
 
-### Acknowledgements 🎁
+### Acknowledgements 
+🎁
 All the peers that contributed with their knowledge
 
-### Authors  ✒️
-Daniel Ramirez, Julian Gaitan
+### Authors  
+✒️
+* [Daniel Ramirez](https://twitter.com/Gomba662)
+* [Julian Gaitan](https://twitter.com/JulianDavidG07)
