@@ -54,7 +54,7 @@ The repository contains the following files:
 [models/state.py](./models/state.py) | A state class that inherits from BaseModel
 [models/user.py](./models/user.py) | A user class that inherits from BaseModel
 [models/engine/file_storage.py](./models/engine/file_storage.py) | A class that serializes instances to a JSON file and deserializes JSON file to instances
-[tests/test_models/](/.tests/test_models/) | Unittests for BaseModel, User, amenity, city, place, review, and state
+[tests/test_models/](./tests/test_models/) | Unittests for BaseModel, User, amenity, city, place, review, and state
 [tests/test_models/test_engine/](./tests/test_models/test_engine/) | Unittest for file storage
 
 
