@@ -6,7 +6,7 @@ import models
 from models.base_model import BaseModel
 
 
-class Amenity:
+class Amenity(BaseModel):
     """class that inherits from BaseModel"""
 
     name = ""
