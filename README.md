@@ -47,8 +47,15 @@ The repository contains the following files:
  -------------- | --------------------- 
 [AUTHORS](./AUTHORS) | Contains info about authors of the project
 [models/base_model.py](./models/base_model.py) | Base Class with public instance attributes and methods
-
-
+[models/amenity.py](./models/amenity.py) | An amenity class that inherits from BaseModel
+[models/city.py](./models/city.py) | A city class that inherits from BaseModel
+[models/place.py](./models/place.py) | A place class that inherits from BaseModel
+[models/review.py](./models/review.py) | A review class that inherits from BaseModel
+[models/state.py](./models/state.py) | A state class that inherits from BaseModel
+[models/user.py](./models/user.py) | A user class that inherits from BaseModel
+[models/engine/file_storage.py](./models/engine/file_storage.py) | A class that serializes instances to a JSON file and deserializes JSON file to instances
+[tests/test_models/](/.tests/test_models/) | Unittests for BaseModel, User, amenity, city, place, review, and state
+[tests/test_models/test_engine/](./tests/test_models/test_engine/) | Unittest for file storage
 
 
 ### Usage and Installation 
