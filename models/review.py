@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Review Class"""
 
-from models
+import models
 from models.base_model import BaseModel
 
 
