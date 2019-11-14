@@ -3,7 +3,7 @@
 ![simple_shell]()
 ## Table of Contents
 
-- [Description](# Description)
+- [Description](#Description)
 - [Environment](#Environment)
 - [Authors](#Authors)
 - [Requirements](#Requirements)
@@ -14,7 +14,8 @@
 - [Built With](#built-with)
 - [Acknowledgments](#acknowledgments)
 
-### Description 📄
+### Description 
+📄
 With this project console (AirBnB clone - The console), we want to be able to manage the objects of our project:
 
  - Create a new object (ex: a new User or a new Place)
