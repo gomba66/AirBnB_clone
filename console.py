@@ -1,11 +1,21 @@
 #!/usr/bin/python3
 import cmd
-from models.base_model import BaseModel
-from shlex import split
-from models import *
 import json
+from shlex import split
+from models import storage
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+from models.place import Place
+from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
+
+    dict_classes = {"BaseModel": BaseModel, "User": User, "State": State,
+                    "City": City, "Amenity": Amenity, "Place": Place,
+                    "Review": Review}
 
     prompt = "(hbnb) "
 
@@ -24,8 +34,7 @@ class HBNBCommand(cmd.Cmd):
         """Create classes"""
         if len(arg) == 0:
             print("** class name missing **")
-            return
-        if arg == "BaseModel":
+        elif arg == "BaseModel":
             o = BaseModel()
             o.save()
             print(o.id)
@@ -33,34 +42,28 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
+
+        all_objs = storage.all()
         line = split(line)
-        dfo = storage.all()
-        print(len(line))
-        print(line)
-        if len(line) == 0:
-            print("** class name missing **")
-            return
-        print(line[0])
-        print(type(line[0]))
-        print(dfo)
-        if line[0] in dfo:
-            print("YES!!!!!!!!!!")
-            items = dfo.items()
-            print(items)
-            if line[2] in items:
-                #new_key = dfo
-                print("YEAHH!")
+        if len(line) == 2:
+            if line[0] in self.dict_classes:
+                for obj_id in all_objs.keys():
+                    obj = all_objs[obj_id]
+                    if line[1] == obj.id:
+                        print(obj)
+                        c = True
+                        break
+                    else:
+                        c = False
+                if c == False:
+                    print("** no instance found **")
+        elif len(line) == 1:
+            if line[0] in self.dict_classes:
+                print("** instance id missing **")
             else:
-                return
+                print("** class doesn't exist **")
         else:
-            print("** class doesn't exist **")
-
-            #print(dfo[key].__class__.__name__)
-#        if len(line) > 0:
-           # for item in line:
-            #    if item == "BaseModel":
-
-            #        print("** class name missing **")
+            print("** class name missing **")
 
 if __name__ == '__main__':
     cmd = HBNBCommand()
