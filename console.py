@@ -32,12 +32,14 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """Create classes"""
+        line = split(line)
         if len(line) == 0:
             print("** class name missing **")
-        elif line == "BaseModel":
-            o = BaseModel()
-            o.save()
-            print(o.id)
+            return
+        if line[0] in self.dict_classes:
+                o = self.dict_classes[line[0]]()
+                o.save()
+                print(o.id)
         else:
             print("** class doesn't exist **")
 
@@ -91,6 +93,28 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
         else:
             print("** class name missing **")
+
+    def do_all(self, line):
+        list_objs = []
+        all_objs = storage.all()
+        line = split(line)
+        if len(line) == 0:
+            for key_id in all_objs.keys():
+                item = all_objs[key_id]
+                item = str(item)
+                list_objs.append(item)
+            print(list_objs)
+        else:
+            c = False
+            for obj_id in all_objs.keys():
+                obj = all_objs[obj_id]
+                if line[0] == obj.__class__.__name__:
+                    list_objs.append(str(obj))
+                    c = True
+            if c == False:
+                print("** class doesn't exist **")
+                return
+            print(list_objs)
 
 if __name__ == '__main__':
     cmd = HBNBCommand()
