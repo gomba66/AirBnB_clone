@@ -28,7 +28,6 @@ class FileStorage:
 
     def reload(self):
 
-        
         obj_dict = {"BaseModel": BaseModel, "User": User, "State": State,
          "City": City, "Amenity": Amenity, "Place": Place,
          "Review": Review}
