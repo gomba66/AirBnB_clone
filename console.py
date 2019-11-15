@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
-
+        """ Command for show an object """
         c = False
         all_objs = storage.all()
         line = split(line)
@@ -60,6 +60,8 @@ class HBNBCommand(cmd.Cmd):
                         c = False
                 if c == False:
                     print("** no instance found **")
+            else:
+                print("** no instance found **")
         elif len(line) == 1:
             if line[0] in self.dict_classes:
                 print("** instance id missing **")
