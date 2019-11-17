@@ -88,6 +88,8 @@ class HBNBCommand(cmd.Cmd):
                         c = False
                 if c == False:
                     print("** no instance found **")
+            else:
+                print("** class doesn't exist **")
         elif len(line) == 1:
             if line[0] in self.dict_classes:
                 print("** instance id missing **")
